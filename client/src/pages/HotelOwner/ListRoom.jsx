@@ -1,7 +1,51 @@
-import React from 'react'
+import React ,{useEffect, useState} from 'react'
 import Title from '../../components/Title'
+import { roomCommonData } from '../../assets/assets';
+import { useAppContext } from '../../context/AppContext';
+import toast from 'react-hot-toast';
 
 const ListRoom = () => {
+
+const [room, setRoom] = useState(roomCommonData)
+const {axios, getToken, user, currency} = useAppContext()
+
+// Fetch Rooms of the Hotel Owner
+const fetchRooms = async()=>{
+  try {
+    const {data} = await axios.get('/api/rooms/owner',{
+          headers: {
+           Authorization: `Bearer ${await getToken()}`} })
+           if(data.success){
+            setRoom(data.rooms)
+           }else{
+            toast.error(data.message)
+           }
+  } catch (error) {
+     toast.error(error.message)
+  }
+}
+
+// Toggle Availability of a Room
+const toggleAvailability = async(roomId) =>{
+  const {data} = await axios.post('/api/rooms/toggle-availability',{roomId},{
+          headers: {
+           Authorization: `Bearer ${await getToken()}`} })
+            if(data.success){
+              toast.success(data.message)
+              fetchRooms()
+            }else{
+               toast.success(error.message)
+            }
+}
+
+
+useEffect(()=>{
+  if(user){
+    fetchRooms()
+    }
+  },[user])
+    
+
  const rooms = [
     {
       roomType: 'Single Bed',
@@ -44,9 +88,12 @@ border-gray-300 rounded-lg max-h-80 overflow-y-scroll mt-3'>
     <thead className='bg-gray-50'>
       <tr>
         <th className='py-3 px-4 text-gray-800 font-medium'>Name</th>
-        <th className='py-3 px-4 text-gray-800 font-medium max-sm:hidden'>Facility</th>
-        <th className='py-3 px-4 text-gray-800 font-medium text-center'>Price / night</th>
-        <th className='py-3 px-4 text-gray-800 font-medium text-center'>Actions</th>
+        <th className='py-3 px-4 text-gray-800 font-medium 
+        max-sm:hidden'>Facility</th>
+        <th className='py-3 px-4 text-gray-800 font-medium 
+        text-center'>Price / night</th>
+        <th className='py-3 px-4 text-gray-800 font-medium 
+        text-center'>Actions</th>
       </tr>
     </thead>
 <tbody>
@@ -60,11 +107,11 @@ border-gray-300 rounded-lg max-h-80 overflow-y-scroll mt-3'>
     {item.amenities.join(', ')}
   </td>
   <td className='py-3 px-4 text-gray-700 border-t border-gray-300'>
-    {item.pricePerNight}
+       {currency} {item.pricePerNight}
   </td>
   <td className='py-3 px-4 text-red-500 border-t border-gray-300 text-sm text-center'>
     <label className='relative inline-flex items-center cursor-pointer text-gray-900 gap-3'>
-      <input
+      <input onChange={() => toggleAvailability (item._id)}
         type='checkbox'
         className='sr-only peer'
         defaultChecked={item.isAvailable} 

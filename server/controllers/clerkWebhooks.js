@@ -1,6 +1,8 @@
 import User from "../models/user.js";
 import { Webhook } from "svix";
-import dotenv from "dotenv";
+
+
+
 const clerkWebhooks = async (req, res) => {
   try {
     const whook = new Webhook(process.env.CLERK_WEBHOOK_SECRET);
@@ -15,20 +17,27 @@ const clerkWebhooks = async (req, res) => {
 
     const { data, type } = req.body;
 
-    const userData = {
-      _id: data.id,
-      email: data.email_addresses[0]?.email_address,
-      username: `${data.first_name} ${data.last_name}`,
-      image: data.image_url
-    };
+    
 
     switch (type) {
       case "user.created":
+       { const userData ={
+          _id: data.id,
+          email:data.email_addresses[0].email_address,
+          username:data.first_name + " "+ data.last_name,
+          image: data.image_url,
+        }
         await User.create(userData);
-        break;
+        break;}
       case "user.updated":
+       { const userData ={
+          _id: data.id,
+          email:data.email_addresses[0].email_address,
+          username:data.first_name + " "+ data.last_name,
+          image: data.image_url,
+        }
         await User.findByIdAndUpdate(data.id, userData);
-        break;
+        break;}
       case "user.deleted":
         await User.findByIdAndDelete(data.id);
         break;
