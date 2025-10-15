@@ -32,7 +32,7 @@ app.use("/api/clerk", clerkWebhooks);
 app.get("/", (req, res) => res.send("API is working"));
 app.use("/api/user", userRouter);
 app.use('/api/hotel',hotelRouter)
-app.use('/api/room',roomRouter)
+app.use('/api/rooms',roomRouter)
 app.use('/api/bookings',bookingRouter)
 
 
