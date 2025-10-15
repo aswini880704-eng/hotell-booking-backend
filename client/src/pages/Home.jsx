@@ -4,7 +4,7 @@ import FeatureDestination from '../components/FeatureDestination'
 import ExclusiveOffers from '../components/ExclusiveOffers'
 import Testimonial from '../components/Testimonial'
 import RecommendedHotels from '../components/RecommendedHotels'
-import NewsLetter from '../components/NEWSletter'
+import NewsLetter from '../components/NewsLetter '
 
 
 
