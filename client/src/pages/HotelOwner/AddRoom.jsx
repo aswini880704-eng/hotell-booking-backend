@@ -22,7 +22,6 @@ const AddRoom = () => {
     amenities:{
       'Free WiFi': false,
       'Free Breakfast': false,
-      'Free Breakfast': false,
       'Mountain View': false,
       'Pool Access': false,
       
@@ -34,7 +33,7 @@ const AddRoom = () => {
   const onSubmitHandler = async (e) =>{
     e.preventDefault()
     // Check if all inputs are filled
-if(!inputs.roomType || inputs.pricePerNight ||
+if(!inputs.roomType || !inputs.pricePerNight ||
   !Object.values(images).some(image => image )){
     toast.error("Please fill all the fields")
     return;
@@ -70,7 +69,6 @@ if(!inputs.roomType || inputs.pricePerNight ||
         pricePerNight:0,
         amenities:{
           'Free WiFi': false,
-          'Free Breakfast': false,
           'Free Breakfast': false,
           'Mountain View': false,
           'Pool Access': false
