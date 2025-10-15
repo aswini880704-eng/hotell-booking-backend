@@ -21,6 +21,7 @@ export const AppProvider = ({ children }) => {
     const [SearhcedCities, setSearhcedCities] = useState([]);
     const [rooms, setRooms] = useState([]);
 
+    
 const fetchRooms = async ()=>{
     try {
         const {data} = await axios.get('/api/rooms')

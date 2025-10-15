@@ -51,4 +51,5 @@ transition-all' src={assets.arrowIcon} alt="arrow-icon"/>
     )
 };
 
+
 export default ExclusiveOffers;

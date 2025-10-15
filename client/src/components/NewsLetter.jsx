@@ -20,6 +20,7 @@ const NewsLetter = () => {
                 active:scale-95 transition-all">
                     Subscribe
 
+
                     <img src={assets.arrowIcon} alt="arrow-icon"
                         className=' w-3.5 invert group-hover:translate-x-1 transition-all' />
                 </button>

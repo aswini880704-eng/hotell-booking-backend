@@ -7,6 +7,7 @@ const connectDB = async () => {
     mongoose.connection.on("connected", () => {
       console.log("MongoDB Connected Successfully");
     });
+   
     
     // Fixed connection string - use backticks and proper string interpolation
     await mongoose.connect(`${process.env.MONGODB_URI}/hotel-booking`);

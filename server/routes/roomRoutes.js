@@ -12,4 +12,5 @@ roomRouter.get('/',getRooms);
 roomRouter.get('/owner',protect,getOwnerRooms);
 roomRouter.get('/toggle-availability',protect,toggleRoomAvailability);
 
+
 export default roomRouter;

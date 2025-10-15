@@ -122,6 +122,7 @@ export const getUserBookings = async (req, res) => {
     }
     }
     
+    
     export const getAllBookings = async (req, res) => {
 try {
         const hotel = await Hotel.findOne({owner:req.user._id});

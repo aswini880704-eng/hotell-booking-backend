@@ -11,6 +11,7 @@ const onSearch = async (e)=>{
     e.preventDefault();
     navigate (`/rooms?destination=${destination}`)
 
+    
     // call api to save recent searched city
     await axios.post('/api/user/store-recent-search', {recentSearchedCity:
         destination},{headers: {Authorization: `Bearer ${await

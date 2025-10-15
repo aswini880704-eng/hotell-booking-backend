@@ -15,6 +15,7 @@ import { Toaster} from 'react-hot-toast';
 import { useAppContext } from './context/AppContext';
 
 
+
 const App = () => {
 const isOwnerpath = useLocation().pathname.includes("owner");
 const {showHotelReg} = useAppContext();

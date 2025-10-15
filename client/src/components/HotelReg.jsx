@@ -12,6 +12,7 @@ const HotelReg = () => {
   const [address, setAddress] = useState("");
   const [city, setCity] = useState(""); 
 
+  
   const onSubmitHandler = async (event) => {
     try {
 

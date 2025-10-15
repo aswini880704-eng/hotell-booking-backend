@@ -54,17 +54,17 @@ useEffect(()=>{
     },
     {
       roomType: 'Double Bed',
-      amenities: ['Free WiFi', 'Free Breakfast', 'Free Breakfast' ,'Pool Access'],
+      amenities: ['Free WiFi', 'Free Breakfast','Pool Access'],
       pricePerNight: '2999'
     },
     {
       roomType: 'Luxury Room',
-      amenities: ['Free WiFi', 'Free Breakfast', 'Free Breakfast','Pool Access'],
+      amenities: ['Free WiFi', 'Free Breakfast','Pool Access'],
       pricePerNight: '2999'
     },
     {
       roomType: 'Family Suite',
-      amenities: ['Free WiFi', 'Free Breakfast', 'Free Breakfast','Pool Access'],
+      amenities: ['Free WiFi', 'Free Breakfast','Pool Access'],
       pricePerNight: '3999'
     }
     

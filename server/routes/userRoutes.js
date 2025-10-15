@@ -7,4 +7,5 @@ const userRouter = express.Router();
 userRouter.get('/', protect,getUserData);
 userRouter.post('/store-recent-search', protect, storeRecntSearchedCities);
 
+
 export default userRouter;

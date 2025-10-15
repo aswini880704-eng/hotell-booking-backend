@@ -14,6 +14,7 @@ const filterHotels = ()=>{
 
 }
 
+
 useEffect(()=>{
   filterHotels()
 },[rooms, searchedCities])

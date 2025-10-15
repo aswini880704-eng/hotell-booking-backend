@@ -15,4 +15,5 @@ bookingRouter.get('/user', protect, getUserBookings);
 bookingRouter.get('/All', protect, getAllBookings);
 
 
+
 export default bookingRouter;

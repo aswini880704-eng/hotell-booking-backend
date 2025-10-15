@@ -28,6 +28,7 @@ export const storeRecntSearchedCities = async (req, res) => {
             user.recetSearchedCities.push(recetSearchedCity);
         }
         await user.save();
+    
         res.json({success: true, message: "City added"});
 
     }catch (error) {
