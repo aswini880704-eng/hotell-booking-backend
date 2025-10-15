@@ -12,7 +12,7 @@ import clerkWebhooks from "./controllers/clerkWebhooks.js";
 
 
 
-
+dotenv.config();
 connectDB(); // Connect to MongoDB
 connectCloudinary(); // Connect to Cloudinary
 
@@ -31,7 +31,7 @@ app.use(clerkMiddleware());
 app.use("/api/clerk", clerkWebhooks);
 app.get("/", (req, res) => res.send("API is working"));
 app.use("/api/user", userRouter);
-app.use('/api/user',hotelRouter)
+app.use('/api/hotel',hotelRouter)
 app.use('/api/room',roomRouter)
 app.use('/api/bookings',bookingRouter)
 

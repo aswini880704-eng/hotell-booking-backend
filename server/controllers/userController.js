@@ -1,7 +1,7 @@
 
 // GET/api/user/
 
-import User from "../models/userModel.js";
+import User from "../models/user.js";
 
 export const getUserData = (req, res) => {
     try {
