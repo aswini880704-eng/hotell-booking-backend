@@ -5,7 +5,7 @@ import Room from "../models/Room.js";
 
 
 // Function to Check Room Availability
-const checkAvailability = async({checkInDate, checkOutDate, room})=>{
+ export const checkAvailability = async({checkInDate, checkOutDate, room})=>{
 try {
     const bookings = await Booking.find({
         room,   
@@ -144,3 +144,4 @@ try {
             
     }
 }
+
