@@ -29,7 +29,7 @@ const CheckAvailability = async ()=>{
             return;
 
         }
-        const {date} = await axios.post('/api/booking/check-availability',
+        const {date} = await axios.post(`/api/booking/check-availability`,
             {room:id,checkInData, checkOutData})
             if(date.success){
                 if(date.isAvailable){
@@ -56,7 +56,7 @@ const CheckAvailability = async ()=>{
                 return CheckAvailability();
 
             }else{
-                const {date} = await axios.post('/api/bookings/book,',
+                const {date} = await axios.post(`/api/bookings/book,`,
                     {room:id,
                         checkInData,checkOutData,guests,paymentMethod: "Pay At Hotel"
                     },{headers: {Authorization: `Bearer ${await

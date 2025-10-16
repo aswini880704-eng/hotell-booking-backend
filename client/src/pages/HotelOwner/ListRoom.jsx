@@ -12,7 +12,7 @@ const {axios, getToken, user, currency} = useAppContext()
 // Fetch Rooms of the Hotel Owner
 const fetchRooms = async()=>{
   try {
-    const {data} = await axios.get('/api/rooms/owner',{
+    const {data} = await axios.get(`/api/rooms/owner`,{
           headers: {
            Authorization: `Bearer ${await getToken()}`} })
            if(data.success){
@@ -27,7 +27,7 @@ const fetchRooms = async()=>{
 
 // Toggle Availability of a Room
 const toggleAvailability = async(roomId) =>{
-  const {data} = await axios.post('/api/rooms/toggle-availability',{roomId},{
+  const {data} = await axios.post(`/api/rooms/toggle-availability`,{roomId},{
           headers: {
            Authorization: `Bearer ${await getToken()}`} })
             if(data.success){
