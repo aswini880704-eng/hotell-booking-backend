@@ -29,7 +29,7 @@ app.use(clerkMiddleware());
 
 // API to listen to Clerk webhooks
 app.use("/api/clerk", clerkWebhooks);
-app.use("/", (req, res) => res.send("API is working"));
+app.get("/", (req, res) => res.send("API is working"));
 app.use("/api/user", userRouter);
 app.use('/api/hotel',hotelRouter)
 app.use('/api/rooms',roomRouter)

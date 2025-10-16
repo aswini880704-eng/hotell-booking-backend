@@ -11,7 +11,7 @@ const AppContext = createContext();
 export const AppProvider = ({ children }) => {
 
 
-    const currency = import.meta.env.VITE_CURRENCY || "$"
+    const currency = import.meta.env.VITE_CURRENCY || "$";
     const navigate = useNavigate();
     const {user} = useUser();
     const {getToken} = useAuth();
@@ -39,13 +39,13 @@ const fetchRooms = async ()=>{
 
     const fetchUser = async()=>{
         try{
-            const {data} = await axios.get(`/api/user`,
+            const {data} = await axios.get('/api/user',
                 {headers: {Authorization: `Bearer ${await getToken()}`}}
 
             )
 
             if(data.success){
-                setIsOwner(data.role === "hotelowner");
+                setIsOwner(data.role === "hotelOwner");
                 setSearhcedCities(data.recentSearchedCities);
             }else{
                 // Retry Fetching user Details after 5 seconds

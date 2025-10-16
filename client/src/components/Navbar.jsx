@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import {assets} from "../assets/assets.js"; // default import
-import { useClerk, useUser,UserButton } from "@clerk/clerk-react";
+import { useClerk,UserButton } from "@clerk/clerk-react";
 import { useAppContext } from "../context/AppContext.jsx";
 
 const BookIcon = () => (
@@ -146,7 +146,7 @@ return;
                 rounded-full cursor-pointer transition-all" 
                  onClick={() => isOwner ? navigate
                             ('/owner'): setShowHotelReg(true)}>
-                    { isOwner ? 'Dashboard': 'List Your Hotel'}
+                    { isOwner ? 'Dashboard' : 'List Your Hotel'}
                 </button>}
 
                 {!user && 
