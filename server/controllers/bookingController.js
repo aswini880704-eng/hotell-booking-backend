@@ -42,7 +42,7 @@ export const ch = async (req, res) => {
     export const createBooking = async (req, res) => {
         try {
             const {room, checkInDate, checkOutDate, guests } = req.body;
-          const user =req.user._Id;
+          const user =req.user._id;
             // Before Bookong Check Room Availability
             const isAvailable = await checkAvailability({
                 checkInDate, 
@@ -55,7 +55,7 @@ export const ch = async (req, res) => {
 
                 // Get totalPrice from Room
                 const roomData =await Room.findById(room).
-                papulate("hotel");
+                populate("hotel");
                 let totalPrice = roomData.pricePerNight ;
 
 
