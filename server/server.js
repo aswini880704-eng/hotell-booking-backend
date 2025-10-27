@@ -11,21 +11,16 @@ import bookingRouter from "./routes/bookingRoutes.js";
 import clerkWebhooks from "./controllers/clerkWebhooks.js";
 
 
-
 dotenv.config();
 connectDB(); // Connect to MongoDB
 connectCloudinary(); // Connect to Cloudinary
 
-
-
 const app = express();
 app.use(cors()); // Enable Cross-Origin Resource Sharing
-
-
 // Middleware
+
 app.use(express.json());
 app.use(clerkMiddleware());
-
 
 // API to listen to Clerk webhooks
 app.use("/api/clerk", clerkWebhooks);
@@ -35,9 +30,6 @@ app.use('/api/hotel',hotelRouter)
 app.use('/api/rooms',roomRouter)
 app.use('/api/bookings',bookingRouter)
 
-
 const PORT = process.env.PORT || 3000;
-
-
 
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
